@@ -1,0 +1,99 @@
+<?php
+    include_once('../../../config.php');
+    include_once('../../funcoes_painel.php');
+
+    /*Verificando Permissões*/
+    verificaPermissao(idUsuario(), 'Relatório - Aniversariantes', 'c', 'index');
+
+?>
+<script src="js/jQuery.print.min.js"></script>
+<script src="js/rel-aniversariantes.js"></script>
+
+<!-- Start Content -->
+<div class="espaco20"></div>
+<div class="titulo">
+    <i class="material-icons texto-laranja pmd-md">description</i>
+    <h1>Relatório de Aniversariantes</h1>
+</div>
+
+<section class="pmd-card pmd-z-depth padding-10">
+
+    <!-- Form de Pesquisa -->
+    <form action="" name="formPesquisa" id="formPesquisa" method="post">
+
+        <div class="form-group pmd-textfield pmd-textfield-floating-label pmd-textfield-floating-label-completed coluna-3">
+            <label>Unidades</label>
+            <select name="unidade" id="unidade" class="select-simple form-control pmd-select2 select2-hidden-accessible" tabindex="-1" aria-hidden="true" required>
+                <option></option>
+                <?php
+                $unidades = Unidades::all(array('conditions' => array('status = ?', 'a'), 'order' => 'nome_fantasia asc'));
+                if(!empty($unidades)):
+                    foreach($unidades as $unidade):
+                        echo '<option value="'.$unidade->id.'">'.$unidade->nome_fantasia.'</option>';
+                    endforeach;
+                endif;
+                ?>
+            </select>
+            <span class="select2 select2-container select2-container--bootstrap select2-container--open select2-container--focus select2-container--above" dir="ltr" style="width: 236px;"><span class="selection"><span class="select2-selection select2-selection--single" role="combobox" aria-haspopup="true" aria-expanded="true" tabindex="0" aria-labelledby="select2-akzg-container" aria-owns="select2-akzg-results" aria-activedescendant="select2-akzg-result-uq2y-Detroit Lions"><span class="select2-selection__rendered" id="select2-akzg-container" title=""></span><span class="select2-selection__arrow" role="presentation"><b role="presentation"></b></span></span></span><span class="dropdown-wrapper" aria-hidden="true"></span></span><span class="pmd-textfield-focused"></span>
+        </div>
+
+        <div class="form-group pmd-textfield pmd-textfield-floating-label pmd-textfield-floating-label-completed coluna-3">
+            <label>Professor</label>
+            <select name="professor" id="professor" class="select-simple form-control pmd-select2 select2-hidden-accessible" tabindex="-1" aria-hidden="true">
+                <option></option>
+                <?php
+                $professores = Colegas::all(array('conditions' => array('status = ? and id_funcao = ?', 'a', 3), 'order' => 'apelido asc'));
+                if(!empty($professores)):
+                    foreach($professores as $professor):
+                        echo '<option value="'.$professor->id.'">'.$professor->apelido.'</option>';
+                    endforeach;
+                endif;
+                ?>
+            </select>
+            <span class="select2 select2-container select2-container--bootstrap select2-container--open select2-container--focus select2-container--above" dir="ltr" style="width: 236px;"><span class="selection"><span class="select2-selection select2-selection--single" role="combobox" aria-haspopup="true" aria-expanded="true" tabindex="0" aria-labelledby="select2-akzg-container" aria-owns="select2-akzg-results" aria-activedescendant="select2-akzg-result-uq2y-Detroit Lions"><span class="select2-selection__rendered" id="select2-akzg-container" title=""></span><span class="select2-selection__arrow" role="presentation"><b role="presentation"></b></span></span></span><span class="dropdown-wrapper" aria-hidden="true"></span></span><span class="pmd-textfield-focused"></span>
+        </div>
+
+        <div class="form-group pmd-textfield pmd-textfield-floating-label pmd-textfield-floating-label-completed coluna-3">
+            <label>Mês</label>
+            <select name="mes" id="mes" class="select-simple form-control pmd-select2 select2-hidden-accessible" tabindex="-1" aria-hidden="true">
+                <option></option>
+                <option value="1">Janeiro</option>
+                <option value="2">Fevereiro</option>
+                <option value="3">Março</option>
+                <option value="4">Abril</option>
+                <option value="5">Maio</option>
+                <option value="6">Junho</option>
+                <option value="7">Julho</option>
+                <option value="8">Agosto</option>
+                <option value="9">Setembro</option>
+                <option value="10">Outubro</option>
+                <option value="11">Novembro</option>
+                <option value="12">Dezembro</option>
+            </select>
+            <span class="select2 select2-container select2-container--bootstrap select2-container--open select2-container--focus select2-container--above" dir="ltr" style="width: 236px;"><span class="selection"><span class="select2-selection select2-selection--single" role="combobox" aria-haspopup="true" aria-expanded="true" tabindex="0" aria-labelledby="select2-akzg-container" aria-owns="select2-akzg-results" aria-activedescendant="select2-akzg-result-uq2y-Detroit Lions"><span class="select2-selection__rendered" id="select2-akzg-container" title=""></span><span class="select2-selection__arrow" role="presentation"><b role="presentation"></b></span></span></span><span class="dropdown-wrapper" aria-hidden="true"></span></span><span class="pmd-textfield-focused"></span>
+        </div>
+        <div class="clear"></div>
+
+        <button type="button" name="gerar-relatorio" id="gerar-relatorio" value="Gerar Relatório" class="btn btn-info pmd-btn-raised">Gerar Relatório</button>
+
+        <?php if(Permissoes::find_by_id_usuario_and_tela_and_imp(idUsuario(), 'Relatório - Aniversariantes', 's')): ?>
+        <button type="button" name="imprimir-relatorio" id="imprimir-relatorio" value="Gerar Relatório" class="btn btn-info pmd-btn-raised">Imprimir Relatório</button>
+        <?php endif; ?>
+
+        <div class="espaco20"></div>
+    </form>
+    <!-- Form de Pesquisa -->
+
+</section>
+
+<section class="pmd-card pmd-z-depth padding-10">
+
+    <div id="relatorio"></div>
+
+</section>
+
+<script type="text/javascript">
+    $("#data_inicial, #data_final").datetimepicker({
+        format: "DD/MM/YYYY"
+    });
+</script>

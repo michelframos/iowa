@@ -1,0 +1,4 @@
+Resultado do Arquivo de retorno 5631_20098014_547913_250130_C240_965.RET importado em: 30/01/2025 13:13:33
+ - boleto numero: <br>Numero de Boletos recebidos: 1
+Numero de Boletos não recebidos: 0
+

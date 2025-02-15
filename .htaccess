@@ -1,0 +1,23 @@
+<IfModule mod_headers.c>
+
+	Header unset ETag
+
+	<filesMatch "\.(css)$">
+		Header set Cache-Control "max-age=60, public"
+	</filesMatch>
+	<filesMatch "\.(js)$">
+		Header set Cache-Control "max-age=60, private"
+	</filesMatch>
+
+</IfModule>
+
+FileETag None
+
+#RewriteEngine On
+#RewriteCond %{SCRIPT_FILENAME} !-f
+#RewriteCond %{SCRIPT_FILENAME} !-d
+#RewriteRule ^(.*)$ index.php?url=$1
+Header set Access-Control-Allow-Origin "*"
+#AddOutputFilterByType DEFLATE application/x-javascript
+#RewriteRule .* - [E=noabort:1]
+#RewriteRule .* - [E=noconntimeout:1]

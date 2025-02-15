@@ -1,0 +1,64 @@
+$(function(){
+
+    $('#box-turmas').hide();
+    $('#box-professores-turmas').hide();
+
+    function verificaTipoListagem()
+    {
+        if($('#pesquisar_por').val() === 'turma'){
+            $('#box-turmas').show();
+            $('#box-professores-turmas').hide();
+        } else {
+            $('#box-turmas').hide();
+            $('#box-professores-turmas').show();
+        }
+    }
+    verificaTipoListagem();
+
+    $('#pesquisar_por').change(function () {
+        verificaTipoListagem();
+    });
+
+    $('#professor').change(function(){
+
+        var dados = $('#formPesquisa').serialize()+'&acao=busca-turmas';
+        $.post('relatorios/alunos-turmas/acoes.php', { dados: dados }, function(data){
+
+            $('#turma_professor').html(data);
+
+        });
+
+    });
+
+
+    $('#gerar-relatorio').click(function(){
+
+        var dados = $('#formPesquisa').serialize()+'&acao=gerar-relatorio';
+        $.post('relatorios/alunos-turmas/acoes.php', { dados: dados }, function(data){
+
+            $('#relatorio').html(data);
+
+        });
+
+    });
+
+
+    $('#imprimir-relatorio').click(function(){
+        $('#relatorio').print({
+            globalStyles: true,
+            mediaPrint: false,
+            stylesheet: "http://fonts.googleapis.com/css?family=Inconsolata",
+            noPrintSelector: ".no-print",
+            iframe: true,
+            append: null,
+            prepend: null,
+            manuallyCopyFormValues: true,
+            deferred: $.Deferred(),
+            timeout: 750,
+            title: null,
+            doctype: '<!doctype html>'
+        });
+    })
+
+
+});

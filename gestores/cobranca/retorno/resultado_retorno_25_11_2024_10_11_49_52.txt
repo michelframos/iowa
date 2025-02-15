@@ -1,0 +1,4 @@
+Resultado do Arquivo de retorno 5631_20064454_492833_241125_C240_434.RET importado em: 25/11/2024 10:49:52
+ - boleto numero: <br>Numero de Boletos recebidos: 1
+Numero de Boletos não recebidos: 16
+

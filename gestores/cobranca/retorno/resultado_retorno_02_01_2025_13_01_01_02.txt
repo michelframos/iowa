@@ -1,0 +1,4 @@
+Resultado do Arquivo de retorno 5631_20087306_492850_250102_C240_178.RET importado em: 02/01/2025 13:01:02
+ - boleto numero: <br>Numero de Boletos recebidos: 1
+Numero de Boletos não recebidos: 0
+

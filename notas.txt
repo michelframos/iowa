@@ -1,0 +1,290 @@
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Arquivo importado, porém existem ALGUNS registros inválidos.
+Confira as ocorrências geradas no final dos registros.
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+75600000         219895217000135                    0514200000000064459 IOWA IDIOMAS                  SICOOB                                  10810201807262900000108100000
+75600011R01  040 2019895217000135                    0514200000000064459 IOWA IDIOMAS                                                                                                  000000010810201800000000
+7560001300001P 010514200000000064459 000000114503014     10 2290             2009201800000000002200000000 01N081020182200920180000000000001000000000000000000000000000000000000000000000000000000000000000000               1000   090000000000 08        Seg(P),Pos(38),Tam(20) - Nosso Número é inválido
+7560001300002Q 011000089735501015ADELSON LACERDA FERNANDES               RUA SAO JOAQUIM ,AP 24                  LIBERDADE      00002000SAO PAULO      SP0000000000000000                                        000                            08
+7560001300003R 01000000000000000000000000000000000000000000000000220092018000000000000200                                                                                                              0000000000000000 000000000000  0         08
+7560001300004S 013APOS O VENCIMENTO COBRAR MULTA DE:  2   APOS O VENCIMENTO COBRAR MORA DIARIA DE:CAMPO 1                                 CAMPO 2                                 CAMPO COMPLEMENTAR                                            08
+7560001300005P 010514200000000064459 000000115905014     10 22105            1512201800000000001500000000 01N081020182151220180000000000001000000000000000000000000000000000000000000000000000000000000000000               1000   090000000000 08        Seg(P),Pos(38),Tam(20) - Nosso Número é inválido
+7560001300006Q 011000041936634856SHEILA NASCIMENTO DA SILVA              RUA AIRTON SENA ,130                    JARDIM PLANALTO00007540GUARULHOS      SP0000000000000000                                        000                            08
+7560001300007R 01000000000000000000000000000000000000000000000000215122018000000000000200                                                                                                              0000000000000000 000000000000  0         08
+7560001300008S 013APOS O VENCIMENTO COBRAR MULTA DE:  2   APOS O VENCIMENTO COBRAR MORA DIARIA DE:CAMPO 1                                 CAMPO 2                                 CAMPO COMPLEMENTAR                                            08
+7560001300009P 010514200000000064459 000000116201014     10 22792            3110201800000000000750000000 01N081020182311020180000000000001000000000000000000000000000000000000000000000000000000000000000000               1000   090000000000 08        Seg(P),Pos(38),Tam(20) - Nosso Número é inválido
+7560001300010Q 011000033390590803MICHEL FERNANDES RAMOS                  RUA VARGINHA ,445                       ERNANE MURAD   00019000PRESIDENTE VENCSP0000000000000000                                        000                            08
+7560001300011R 01000000000000000000000000000000000000000000000000231102018000000000000200                                                                                                              0000000000000000 000000000000  0         08
+7560001300012S 013APOS O VENCIMENTO COBRAR MULTA DE:  2   APOS O VENCIMENTO COBRAR MORA DIARIA DE:CAMPO 1                                 CAMPO 2                                 CAMPO COMPLEMENTAR                                            08
+7560001300013P 010514200000000064459 000000117601014     10 22792            3110201800000000000750000000 01N081020182311020180000000000001000000000000000000000000000000000000000000000000000000000000000000               1000   090000000000 08        Seg(P),Pos(38),Tam(20) - Nosso Número é inválido
+7560001300014Q 011000033390590803MICHEL FERNANDES RAMOS                  RUA VARGINHA ,445                       ERNANE MURAD   00019000PRESIDENTE VENCSP0000000000000000                                        000                            08
+7560001300015R 01000000000000000000000000000000000000000000000000231102018000000000000200                                                                                                              0000000000000000 000000000000  0         08
+7560001300016S 013APOS O VENCIMENTO COBRAR MULTA DE:  2   APOS O VENCIMENTO COBRAR MORA DIARIA DE:CAMPO 1                                 CAMPO 2                                 CAMPO COMPLEMENTAR                                            08
+75600015         00001800000400000000000052000000000000000000000000000000000000000000000000000000000000000000000000
+75699999         000001000020000000
+
+
+<!--Media, Title, and Action Area -->
+    <div class="pmd-card pmd-card-media-inline pmd-card-default pmd-z-depth coluna-4">
+
+        <!-- Card media-->
+        <div class="pmd-card-media">
+            <div class="espaco"></div>
+
+            <?php
+            $unidades_ativas = Unidades::all(array('conditions' => array('status = ?', 'a')));
+            $unidades_inativas = Unidades::all(array('conditions' => array('status = ?', 'i')));
+            ?>
+
+            <div class="pmd-card-title">
+                <div class="media-left float-left">
+                    <i class="material-icons media-left media-middle size-3">place</i>
+                </div>
+                <div class="media-body media-middle float-left">
+                    <h2 class="pmd-card-title-text text-left padding-10">UNIDADES</h2>
+                </div>
+            </div>
+
+            <!-- Card media heading -->
+            <div class="media-body">
+
+                <!-- Striped table -->
+                <div class="table-responsive">
+                    <!-- Table -->
+                    <table class="table pmd-table table-striped table-mc-red">
+                        <thead>
+                        <tr>
+                            <th></th>
+                            <th></th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td data-title="Name">Unidades Ativas:</td>
+                            <td data-title="Code"><?php echo count($unidades_ativas); ?></td>
+                        </tr>
+                        <tr>
+                            <td data-title="Name">Unidades Inativas:</td>
+                            <td data-title="Code"><?php echo count($unidades_inativas); ?></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Card action -->
+                <div class="pmd-card-actions text-left" style="margin: 0;">
+                    <button class="btn pmd-btn-flat pmd-ripple-effect btn-success" type="button">IR PARA UNIDADES</button>
+                </div>
+
+            </div>
+
+            <div class="espaco20"></div>
+
+        </div>
+        <!-- Card media-->
+    </div>
+
+    <!--Media, Title, and Action Area -->
+    <div class="pmd-card pmd-card-media-inline pmd-card-default pmd-z-depth coluna-4">
+
+        <!-- Card media-->
+        <div class="pmd-card-media">
+            <div class="espaco"></div>
+
+            <?php
+            $colegas_ativos = Colegas::all(array('conditions' => array('status = ?', 'a')));
+            $colegas_inativos = Colegas::all(array('conditions' => array('status = ?', 'i')));
+            $colegas_unidades = ceil(count($colegas_ativos)/count($unidades_ativas));
+            ?>
+
+            <div class="pmd-card-title">
+                <div class="media-left float-left">
+                    <i class="material-icons media-left media-middle size-3">assignment_ind</i>
+                </div>
+                <div class="media-body media-middle float-left">
+                    <h2 class="pmd-card-title-text text-left padding-10">COLEGAS</h2>
+                </div>
+            </div>
+
+            <!-- Card media heading -->
+            <div class="media-body">
+
+                <!-- Striped table -->
+                <div class="table-responsive">
+                    <!-- Table -->
+                    <table class="table pmd-table table-striped table-mc-red">
+                        <thead>
+                        <tr>
+                            <th></th>
+                            <th></th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td data-title="Name">Colegas Ativos:</td>
+                            <td data-title="Code"><?php echo count($colegas_ativos); ?></td>
+                        </tr>
+                        <tr>
+                            <td data-title="Name">Colegas Inativos:</td>
+                            <td data-title="Code"><?php echo count($colegas_inativos); ?></td>
+                        </tr>
+                        <tr>
+                            <td data-title="Name">Média Colegas/Unidade:</td>
+                            <td data-title="Code"><?php echo $colegas_unidades; ?></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Card action -->
+                <div class="pmd-card-actions text-left" style="margin: 0;">
+                    <button class="btn pmd-btn-flat pmd-ripple-effect btn-success" type="button">IR PARA COLEGAS</button>
+                </div>
+
+            </div>
+
+            <div class="espaco20"></div>
+
+        </div>
+        <!-- Card media-->
+    </div>
+
+    <!--Media, Title, and Action Area -->
+    <div class="pmd-card pmd-card-media-inline pmd-card-default pmd-z-depth coluna-4">
+
+        <!-- Card media-->
+        <div class="pmd-card-media">
+            <div class="espaco"></div>
+
+            <?php
+            $turmas_ativas = Turmas::all(array('conditions' => array('status = ?', 'a')));
+            $turmas_inativas = Turmas::all(array('conditions' => array('status = ?', 'i')));
+            $turmas_unidade = ceil(count($turmas_ativas)/count($unidades_ativas));
+            ?>
+
+            <!-- Card media heading -->
+            <div class="pmd-card-title">
+                <div class="media-left float-left">
+                    <i class="material-icons media-left media-middle size-3">group_add</i>
+                </div>
+                <div class="media-body media-middle float-left">
+                    <h2 class="pmd-card-title-text text-left padding-10">TURMAS</h2>
+                </div>
+            </div>
+
+            <div class="media-body">
+
+                <!-- Striped table -->
+                <div class="table-responsive">
+                    <!-- Table -->
+                    <table class="table pmd-table table-striped table-mc-red">
+                        <thead>
+                        <tr>
+                            <th></th>
+                            <th></th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td data-title="Name">Turmas Ativas:</td>
+                            <td data-title="Code"><?php echo count($turmas_ativas); ?></td>
+                        </tr>
+                        <tr>
+                            <td data-title="Name">Turmas Inativas:</td>
+                            <td data-title="Code"><?php echo count($turmas_inativas); ?></td>
+                        </tr>
+                        <tr>
+                            <td data-title="Name">Média Turmas/Unidade:</td>
+                            <td data-title="Code"><?php echo $turmas_unidade; ?></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Card action -->
+                <div class="pmd-card-actions text-left" style="margin: 0;">
+                    <button class="btn pmd-btn-flat pmd-ripple-effect btn-success" type="button">IR PARA TURMAS</button>
+                </div>
+
+            </div>
+
+            <div class="espaco20"></div>
+
+        </div>
+        <!-- Card media-->
+    </div>
+
+    <!--Media, Title, and Action Area -->
+    <div class="pmd-card pmd-card-media-inline pmd-card-default pmd-z-depth coluna-4">
+
+        <!-- Card media-->
+        <div class="pmd-card-media">
+            <div class="espaco"></div>
+
+            <?php
+            $alunos_ativos = Alunos::all(array('conditions' => array('status = ?', 'a')));
+            $alunos_inativos = Alunos::all(array('conditions' => array('status = ?', 'i')));
+            $alunos_standby = Alunos::all(array('conditions' => array('status = ?', 's')));
+            $alunos_turmas = ceil(count($alunos_ativos)/count($turmas_ativas));
+            $alunos_unidades = ceil(count($alunos_ativos)/count($unidades_ativas));
+            ?>
+
+            <div class="pmd-card-title">
+                <div class="media-left float-left">
+                    <i class="material-icons media-left media-middle size-3">school</i>
+                </div>
+                <div class="media-body media-middle float-left">
+                    <h2 class="pmd-card-title-text text-left padding-10">ALUNOS</h2>
+                </div>
+            </div>
+
+            <!-- Card media heading -->
+            <div class="media-body">
+
+                <!-- Striped table -->
+                <div class="table-responsive">
+                    <!-- Table -->
+                    <table class="table pmd-table table-striped table-mc-red">
+                        <thead>
+                        <tr>
+                            <th></th>
+                            <th></th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td data-title="Name">Alunos Ativos:</td>
+                            <td data-title="Code"><?php echo count($alunos_ativos); ?></td>
+                        </tr>
+                        <tr>
+                            <td data-title="Name">Alunos Inativos:</td>
+                            <td data-title="Code"><?php echo count($alunos_inativos); ?></td>
+                        </tr>
+                        <tr>
+                            <td data-title="Name">Alunos em Stand By:</td>
+                            <td data-title="Code"><?php echo count($alunos_standby); ?></td>
+                        </tr>
+                        <tr>
+                            <td data-title="Name">Média Alunos/Turma:</td>
+                            <td data-title="Code"><?php echo $alunos_turmas; ?></td>
+                        </tr>
+                        <tr>
+                            <td data-title="Name">Média Alunos/Unidade:</td>
+                            <td data-title="Code"><?php echo $alunos_unidades; ?></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Card action -->
+                <div class="pmd-card-actions text-left" style="margin: 0;">
+                    <button class="btn pmd-btn-flat pmd-ripple-effect btn-success" type="button">IR PARA ALUNOS</button>
+                </div>
+
+            </div>
+
+            <div class="espaco20"></div>
+
+        </div>
+        <!-- Card media-->
+    </div>

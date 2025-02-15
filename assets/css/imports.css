@@ -1,0 +1,7 @@
+/* Bootstrap datetimepicker */
+/*@import "http://propeller.in/components/datetimepicker/css/bootstrap-datetimepicker.css";*/
+@import "import/bootstrap-datetimepicker.css";
+
+/* Propeller datetimepicker */
+/*@import "http://propeller.in/components/datetimepicker/css/pmd-datetimepicker.css";*/
+@import "import/pmd-datetimepicker.css";

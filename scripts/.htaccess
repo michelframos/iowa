@@ -1,0 +1,17 @@
+# Habilitar o PHP 5.5
+#AddHandler php55-script .php
+#suPHP_ConfigPath /home/colegiovenceslauense/php.ini
+
+RewriteEngine On
+RewriteCond %{SCRIPT_FILENAME} !-f
+RewriteCond %{SCRIPT_FILENAME} !-d
+RewriteRule ^(.*)$ index.php?url=$1
+
+<IfModule mod_deflate.c>
+    SetOutputFilter DEFLATE
+
+    SetEnvIfNoCase Request_URI .(?:gif|jpe?g|png)$ no-gzip dont-vary
+    SetEnvIfNoCase Request_URI .(?:exe|t?gz|zip|bz2|sit|rar)$ no-gzip dont-vary
+    SetEnvIfNoCase Request_URI .(?:pdf|mov|avi|mp3|mp4|rm)$ no-gzip dont-vary
+    #Header set Access-Control-Allow-Origin "*"
+</IfModule>

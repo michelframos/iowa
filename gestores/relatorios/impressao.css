@@ -1,0 +1,12 @@
+table{ width: 100%; }
+table th{ text-align: center; background: #efefef; font-weight: bold; }
+table, table th, table tr, table td{font: 0.8em 'Arial'; border-collapse: collapse; }
+table th, table tr, table td{ border: 1px solid #011018; padding: 2px; }
+.text-center{ text-align: center; }
+.text-right{ text-align: right; }
+.bold{ font-weight: bold; }
+
+#total-registros, #total-valor{ font-size: 1.2em; font-weight: bold; text-align: center; }
+
+#titulo{ font: 0.5em 'Arial'; font-weight: bold; text-align: center; }
+.texto{ font: 0.7em 'Arial'; }

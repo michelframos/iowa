@@ -1,0 +1,4 @@
+Resultado do Arquivo de retorno 5631_20087306_492850_240711_C240_091.RET importado em: 11/07/2024 09:47:25
+ - boleto numero: <br> - boleto numero: <br> - boleto numero: <br> - boleto numero: <br> - boleto numero: <br> - boleto numero: <br> - boleto numero: <br> - boleto numero: <br> - boleto numero: <br> - boleto numero: <br> - boleto numero: <br> - boleto numero: <br> - boleto numero: <br>Numero de Boletos recebidos: 13
+Numero de Boletos não recebidos: 0
+

@@ -1,0 +1,4 @@
+Resultado do Arquivo de retorno 5631_20098014_547913_240916_C240_903.RET importado em: 16/09/2024 08:26:24
+ - boleto numero: <br>Numero de Boletos recebidos: 1
+Numero de Boletos não recebidos: 0
+

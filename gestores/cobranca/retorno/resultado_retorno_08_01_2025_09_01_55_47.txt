@@ -1,0 +1,4 @@
+Resultado do Arquivo de retorno 5631_20064454_492833_250108_C240_460.RET importado em: 08/01/2025 09:55:47
+ - boleto numero: <br> - boleto numero: <br> - boleto numero: <br> - boleto numero: <br> - boleto numero: <br> - boleto numero: <br>Numero de Boletos recebidos: 6
+Numero de Boletos não recebidos: 2
+

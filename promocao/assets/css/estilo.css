@@ -1,0 +1,46 @@
+body{
+    /*background: #ed4266;*/
+    background: #2a1c51;
+    font-family: 'assistantregular';
+    font-weight: 300;
+}
+
+#box-dados{
+
+}
+
+input, select{
+    display: block;
+    width: 100%;
+    border: none;
+    padding: 10px 30px;
+    font-size: 14px;
+    font-weight: normal;
+    line-height: 20px;
+    color: inherit;
+    border-radius: 10px;
+    background: #fff;
+    background: rgba(255, 255, 255, 0.20);
+    background: #fff3;
+}
+
+input::placeholder{
+    color: #676767;
+    font-weight: bold;
+    font-size: 1em;
+}
+
+.btn-enviar{
+    font-family: 'assistantregular';
+    border-radius: 10px !important;
+    width: 100%;
+    padding: 10px;
+    background: #f9b03e;
+    color: #ffffff;
+    transition: background 0.35s;
+}
+
+.btn-enviar:hover{
+    cursor: pointer;
+    background: #0ead69;
+}

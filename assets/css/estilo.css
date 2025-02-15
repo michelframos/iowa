@@ -1,0 +1,206 @@
+/*Bordas*/
+.radius-2 {
+  border-radius: 2px;
+}
+.radius-4 {
+  border-radius: 4px;
+}
+body {
+  font-family: 'assistantregular' !important;
+  font-size: 0.9em;
+  background: #f7f5f4;
+  width: 100%;
+  height: 100%;
+}
+.fundo-login {
+  background: url('../imagens/fundo-login.jpg') 50% 50% no-repeat fixed;
+  background-size: cover;
+}
+.fundo-empresa {
+  background: url('../imagens/fundo-empresas.jpg') 50% 50% no-repeat fixed;
+  background-size: cover;
+}
+.box-login {
+  width: 300px;
+  border: 1px solid #d6d4d3;
+  border-radius: 4px;
+  margin: auto;
+  margin-top: 50px;
+  overflow: hidden;
+}
+.box-recupera-senha {
+  width: 700px;
+  border: 1px solid #d6d4d3;
+  border-radius: 4px;
+  margin: auto;
+  margin-top: 50px;
+  overflow: hidden;
+}
+.topo-login {
+  width: 100%;
+}
+.topo-login img {
+  max-width: 100%;
+}
+#logo-painel img {
+  max-width: 80px;
+}
+.linha-ativa {
+  background: #efc5c1;
+}
+.parcela-pausada {
+  background: #efc5c1;
+}
+/*-----------------------------------------------------------------------*/
+/*Selectes*/
+.cont_select_center {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  margin-top: -30px;
+  margin-left: -150px;
+  box-sizing: border-box;
+}
+.cont_heg_50 {
+  position: absolute;
+  height: 50%;
+  left: 0;
+  top: 0;
+  width: 100%;
+  background-color: #fd7b52;
+  box-sizing: border-box;
+}
+/* ///  END DECORATION CSS  ///  */
+.icon_select_mate {
+  position: absolute;
+  top: 10px;
+  right: 2%;
+  font-size: 16px;
+  height: 22px;
+  transition: all 275ms;
+  box-sizing: border-box;
+}
+.select_mate {
+  position: relative;
+  float: left;
+  min-height: 25px;
+  width: 100%;
+  color: #777;
+  font-weight: 300;
+  background-color: #fff;
+  border: 1px solid #d6d4d3;
+  background: #fbf9f8;
+  /*box-shadow: 1px 2px 10px -2px rgba(0,0,0,0.3);*/
+  border-radius: 3px;
+  transition: all 150ms ease-in-out;
+  box-sizing: border-box;
+  /* Oculto el elemento select */
+}
+.select_mate select {
+  position: absolute;
+  overflow: hidden;
+  height: 0px;
+  opacity: 0;
+  z-index: -1;
+  box-sizing: border-box;
+}
+.cont_list_select_mate {
+  position: relative;
+  float: left;
+  width: 100%;
+  box-sizing: border-box;
+}
+.cont_select_int {
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  z-index: 999;
+  overflow: hidden;
+  height: 0px;
+  width: 100%;
+  background-color: #fff;
+  padding: 0px;
+  margin-bottom: 0px;
+  margin-top: 0px;
+  border-radius: 0px 0px 3px 3px;
+  box-shadow: 1px 4px 10px -2px rgba(0, 0, 0, 0.2);
+  transition: all 150ms ease-in-out;
+  box-sizing: border-box;
+}
+.cont_select_int li {
+  position: relative;
+  float: left;
+  width: 100%;
+  border-bottom: 1px solid #E0E0E0;
+  background-color: #F5F5F5;
+  list-style-type: none;
+  padding: 10px 2%;
+  margin: 0px;
+  transition: all 275ms ease-in-out;
+  display: block;
+  cursor: pointer;
+  box-sizing: border-box;
+}
+.cont_select_int li:last-child {
+  border-radius: 3px;
+  border-bottom: 0px;
+  box-sizing: border-box;
+}
+.cont_select_int li:hover {
+  background-color: #EEEEEE;
+}
+.cont_select_int .active {
+  background-color: #EEEEEE;
+}
+/* etiqueta <p> con la opcion selecionada  */
+.selecionado_opcion {
+  padding: 10px 2%;
+  width: 96%;
+  display: block;
+  margin: 0px;
+  cursor: pointer;
+}
+/*Fim do Select*/
+.dropdown-item:hover {
+  cursor: pointer;
+}
+/*-----------------------------------------------------------------------*/
+/*-----------------------------------------------------------------------*/
+/*Topo*/
+#nav-topo {
+  width: 100%;
+  background-color: #00a0d2;
+  color: #ffffff;
+}
+.nav-pessoal li {
+  padding: 5px 18px 5px 0px;
+}
+.titulo {
+  display: flex;
+  -webkit-align-items: center;
+  align-items: center;
+}
+.titulo li {
+  float: left;
+  margin-right: 5px;
+}
+/*Geral*/
+.aviso li {
+  float: left;
+}
+.aviso .texto-aviso {
+  padding-top: 10px;
+  margin-left: 10px;
+  font-size: 1.1em;
+}
+@media (max-width: 860px) {
+  .box-recupera-senha {
+    width: 90%;
+  }
+}
+@media (max-width: 350px) {
+  .box-login {
+    width: 100%;
+  }
+}
+/*-----------------------------------------------------------------------*/

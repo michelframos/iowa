@@ -1,0 +1,4 @@
+Resultado do Arquivo de retorno 5631_20064454_492833_240809_C240_369.RET importado em: 09/08/2024 10:54:58
+ - boleto numero: <br>Numero de Boletos recebidos: 1
+Numero de Boletos não recebidos: 0
+

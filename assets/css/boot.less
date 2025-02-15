@@ -1,0 +1,166 @@
+@font-face {
+  font-family: 'assistantregular';
+  src: url('font/assistant-regular-webfont.eot');
+  src: url('font/assistant-regular-webfont.eot?#iefix') format('embedded-opentype'),
+  url('font/assistant-regular-webfont.woff2') format('woff2'),
+  url('font/assistant-regular-webfont.woff') format('woff'),
+  url('font/assistant-regular-webfont.ttf') format('truetype'),
+  url('font/assistant-regular-webfont.svg#assistantregular') format('svg');
+  font-weight: normal;
+  font-style: normal;
+
+}
+
+/*RESET*/
+*, *:before, *:after{
+  margin: 0;
+  padding: 0;
+  outline: 0;
+
+  font-size: 1em;
+  font-weight: 400;
+
+  line-height: 1.2;
+  letter-spacing: 0em;
+
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+}
+
+/* Selection colours (easy to forget) */
+::selection {
+  background: #FC6D6D;
+  color: #FFF;
+}
+::-moz-selection {
+  background: #FC6D6D;
+  color: #FFF;
+}
+
+/*Body*/
+body{ margin: 0; padding: 0; }
+*{ box-sizing: border-box; }
+
+/*Listas*/
+ul{ list-style: none; margin: 0; padding: 0; }
+
+/*Inputs*/
+input[type=text], input[type=password], select{ border: 1px solid #dfded2; padding: 10px; background: #fbf9f8; box-sizing: border-box; }
+input[type=submit], input[type=button], button{ padding: 10px; border: none; border-radius: 3px; box-sizing: border-box; }
+
+/*Placeholder*/
+::-webkit-input-placeholder  { font-family: 'assistantregular'; }
+input:-moz-placeholder { font-family: 'assistantregular'; }
+textarea:-moz-placeholder { font-family: 'assistantregular'; }
+
+/*Cores*/
+.azul{ color: #216fdd; }
+
+/*Colunas*/
+.coluna-1-3{ width: 29%; float: left; margin-right: 10px; margin-bottom: 15px; }
+.coluna2{ width: 45%; margin-right: 5px; float: left; margin-bottom: 15px;
+  /*&:nth-of-type(2n+0){ margin-right: 0; }*/
+}
+.coluna-2-3{ width: 69%; float: left; }
+.coluna-3{ float: left; width: 32%; margin-right: 2%; margin-bottom: 15px;
+  &:nth-of-type(3n+0){ margin-right: 0; }
+}
+.coluna-4{ width: 23%; float: left; margin-right: 10px; margin-bottom: 15px;
+  //&:nth-of-type(4n+0){ margin-right: 0; }
+}
+
+.coluna-80{ width: 78%; }
+.coluna-20{ width: 19%; }
+
+.coluna-metade{ width: 49%; margin-right: 15px; margin-bottom: 15px; float: left;
+  &:nth-of-type(2n+0){ margin-right: 0; }
+}
+
+/*Botões*/
+/*.btn{ border: 1px solid #3897f0; }*/
+.btn-azul{ background: #3897f0; }
+.btn-vermelho{ background: #dd332c; }
+
+/*Cor do Testo*/
+.texto-branco{ color: #ffffff; }
+.texto-laranja{ color: #e1340f; }
+
+/*Estilo Texto*/
+.negrito{ font-weight: bold; }
+
+/*Tamanhos de Texto*/
+.size-1{ font-size: 1em; }
+.size-1-5{ font-size: 1.5em; }
+.size-2{ font-size: 2em; }
+.size-3{ font-size: 3em; }
+.size-4{ font-size: 4em; }
+.size-5{ font-size: 5em; }
+
+/*Largura*/
+.campo-100{ width: 100%; box-sizing: border-box; }
+
+/*alinhamento*/
+.texto-centro{ text-align: center; }
+
+/*Paddings*/
+.padding-5{ padding: 5px; }
+.padding-10{ padding: 10px; }
+.padding-15{ padding: 15px; }
+.padding-20{ padding: 20px; }
+
+/*Margens*/
+.margin-top-2{ margin-top: 2px; }
+.margin-top-5{ margin-top: 5px; }
+.margin-top-10{ margin-top: 10px; }
+.margin-top-15{ margin-top: 15px; }
+.margin-top-20{ margin-top: 20px; }
+.margin-right-5{ margin-right: 5px; }
+.margin-right-10{ margin-right: 10px; }
+
+/*Bordas*/
+.radius-2{ border-radius: 2px; }
+.radius-4{ border-radius: 4px; }
+
+/*Float*/
+.float-left{ float: left; }
+.float-right{ float: right; }
+
+/*Fundos*/
+.bg-branco{ background-color: #ffffff; }
+.bg-laranja{ background-color: #FC6D6D; }
+.bg-azul{ background-color: #1e65ca;
+  &:hover{ background: #216fdd; }
+}
+
+/*Links*/
+a{ text-decoration: none; color: inherit; }
+
+/*Sombras*/
+.sombra-1{ box-shadow: 0 1px 3px rgba(0,0,0,.16), 0 1px 3px rgba(0,0,0,.12); }
+
+/*Geral*/
+.cursor-pointer{ cursor: pointer; }
+.espaco{ clear: both; float: none; height: 5px; }
+.espaco20{ clear: both; float: none; height: 20px;  }
+.clear{ clear: both; float: none; }
+.flex{ display: flex !important; flex-wrap: wrap !important;; flex-direction: row !important; }
+.oculto{ display: none !important; }
+.container-unidades{ width: 60%; margin: auto; }
+.nova-aba{ target-new: tab; }
+
+@media(max-width: 1024px){
+
+  .coluna-metade{ width: 100%;
+    &:nth-of-type(2n+0){ margin: 0; }
+  }
+
+}
+
+@media(max-width: 680px){
+
+  .coluna-3{ width: 100%;
+    &:nth-of-type(3n+0){ margin: 0; }
+  }
+
+}

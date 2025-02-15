@@ -1,0 +1,4 @@
+Resultado do Arquivo de retorno IEDCBR363010202012838.ret importado em: 28/01/2021 07:55:46
+Numero de Boletos recebidos: 0
+Numero de Boletos não recebidos: 1
+
