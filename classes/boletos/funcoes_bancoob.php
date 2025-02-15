@@ -351,7 +351,8 @@ function fator_vencimento($data) {
 	$ano = $data[2];
 	$mes = $data[1];
 	$dia = $data[0];
-    return(abs((_dateToDays("1997","10","07")) - (_dateToDays($ano, $mes, $dia))));
+    //return(abs((_dateToDays("1997","10","07")) - (_dateToDays($ano, $mes, $dia))));
+    return(abs((_dateToDays("2025","02","22")) - (_dateToDays($ano, $mes, $dia)))+1000);
 }
 
 function _dateToDays($year,$month,$day) {
