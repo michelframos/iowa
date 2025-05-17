@@ -14,6 +14,7 @@
 
         if(!empty($usuario)):
             $_SESSION['usuario']['id'] = $usuario->id;
+            $_SESSION['usuario']['nome'] = $usuario->nome;
             header('Location:gestores/index.php?tela=inicio');
         else:
             Mensagem('Usuário e/ou senha inválido! Tente novamente.', '');
