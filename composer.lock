@@ -1526,14 +1526,14 @@
     "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": {
-        "quilhasoft/opencnabphp": 20,
-        "openboleto/openboleto": 20
+        "openboleto/openboleto": 20,
+        "quilhasoft/opencnabphp": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
         "ext-json": "*"
     },
-    "platform-dev": [],
-    "plugin-api-version": "2.2.0"
+    "platform-dev": {},
+    "plugin-api-version": "2.6.0"
 }

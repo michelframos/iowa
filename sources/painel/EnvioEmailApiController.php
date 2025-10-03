@@ -4,7 +4,7 @@ namespace IowaPainel;
 class EnvioEmailApiController
 {
 
-    public function enviar($from, $subject, $body, $to)
+    public function enviar($from, $subject, $body, $to, $cc = [])
     {
 
         $curl = curl_init();
@@ -14,6 +14,7 @@ class EnvioEmailApiController
             'subject' => $subject,
             'to' => $to,
             'body' => $body,
+            'cc' => $cc,
         ];
 
         curl_setopt_array($curl, array(

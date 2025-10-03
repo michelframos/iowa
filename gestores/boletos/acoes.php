@@ -96,7 +96,8 @@ if($dados['acao'] == 'enviar-emails'):
                         'IOWA Idiomas <financeiro@iowaidiomas.com.br>',
                         'Boleto - IOWA Idiomas',
                         $mensagem,
-                        $aluno->nome.' <'.$email_destinatario.'>'
+                        $aluno->nome.' <'.$email_destinatario.'>',
+                        ['boletos@iowa.com.br']
                     );
 
                     if(!empty($email_destinatario)):
@@ -188,7 +189,8 @@ if($dados['acao'] == 'enviar-emails'):
                         'IOWA Idiomas <financeiro@iowaidiomas.com.br>',
                         'Boleto - IOWA Idiomas',
                         $mensagem,
-                        $aluno->nome.' <'.$email_destinatario.'>'
+                        $aluno->nome.' <'.$email_destinatario.'>',
+                        ['boletos@iowa.com.br']
                     );
 
                     if(!empty($email_destinatario)):
