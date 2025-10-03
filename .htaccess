@@ -13,11 +13,12 @@
 
 FileETag None
 
-RewriteEngine On
-RewriteCond %{SCRIPT_FILENAME} !-f
-RewriteCond %{SCRIPT_FILENAME} !-d
+#RewriteEngine On
+#RewriteCond %{SCRIPT_FILENAME} !-f
+#RewriteCond %{SCRIPT_FILENAME} !-d
 #RewriteRule ^(.*)$ index.php?url=$1
-php_value auto_prepend_file "C:\laragon\www\iowa\capture_requests.php"
+#php_value auto_prepend_file "C:\laragon\www\iowa\capture_requests.php"
+#php_value auto_prepend_file "/home/iowaidiomas/public_html/sis/capture_requests.php"
 Header set Access-Control-Allow-Origin "*"
 #AddOutputFilterByType DEFLATE application/x-javascript
 #RewriteRule .* - [E=noabort:1]
