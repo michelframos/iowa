@@ -1477,6 +1477,7 @@ if(!empty($dados)):
 
         $turma = Turmas::find($dados['id_turma']);
         $ultimo_numero = Parcelas::find(array('conditions' => array('id_turma = ? and id_matricula = ?', $turma->id, $id_matricula), 'order' => 'parcela desc', 'limit' => 1));
+        $ultimo_numero = $ultimo_numero->parcela ?? 1;
 
         //$idioma = Idiomas::find($turma->id_idioma);
 

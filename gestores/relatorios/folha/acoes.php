@@ -175,11 +175,12 @@ if($dados['acao'] == 'gerar-relatorio'):
                                 $total_horas_turma += strtotime($aula->hora_termino.':00') - strtotime($aula->hora_inicio.':00');
                                 $total_horas += strtotime($aula->hora_termino.':00') - strtotime($aula->hora_inicio.':00');
                             endif;
-                                if($valor_hora_aula->aplicar_categoria == 's'):
-                                    $subTotal += $aula->valor_hora_aula*$colega->instrutor_categoria;
-                                elseif($valor_hora_aula->aplicar_categoria == 'n'):
-                                    $subTotal += $aula->valor_hora_aula;
-                                endif;
+                            
+                            if($valor_hora_aula->aplicar_categoria == 's'):
+                                $subTotal += $aula->valor_hora_aula*$colega->instrutor_categoria;
+                            elseif($valor_hora_aula->aplicar_categoria == 'n'):
+                                $subTotal += $aula->valor_hora_aula;
+                            endif;
                         endforeach;
 
                         echo '<tr>';
