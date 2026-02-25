@@ -1,4 +1,12 @@
 <?php
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\SMTP;
+use PHPMailer\PHPMailer\Exception;
+
+include_once('../../classes/PHPMailer7/Exception.php');
+include_once('../../classes/PHPMailer7/PHPMailer.php');
+include_once('../../classes/PHPMailer7/SMTP.php');
+
 include_once('../../config.php');
 include_once('../funcoes_painel.php');
 parse_str(filter_input(INPUT_POST, 'dados', FILTER_SANITIZE_STRING, FILTER_FLAG_NO_ENCODE_QUOTES), $dados);
@@ -537,7 +545,7 @@ if($dados['acao'] == 'salvar'):
 
 
     /*enviando e-mail para o gerente*/
-    include_once('../../classes/PHPMailer/class.phpmailer.php');
+    //include_once('../../classes/PHPMailer/class.phpmailer.php');
 
     try{
         $configuracao_email = Envio_Emails::find(1);
@@ -546,7 +554,7 @@ if($dados['acao'] == 'salvar'):
     }
 
     $unidade = Unidades::find($dados['id_unidade']);
-    $gerente = Usuarios::find($unidade->id_gerente);
+    $gerente = Usuarios::find_by_id($unidade->id_gerente);
     $aluno = Alunos::find($dados['id_aluno']);
 
     $instrutor = Colegas::find($dados['id_colega']);
@@ -554,33 +562,35 @@ if($dados['acao'] == 'salvar'):
     $mensagem  = "Olá {$gerente->nome}, um novo HELP para aprovação requer sua atenção. ";
     $mensagem .= "O HELP é para o aluno(a) {$aluno->nome} com o instrutor(a) {$instrutor->nome}, tendo início previsto para o dia {$dados['data_inicio']}";
 
-    $mail = new PHPMailer();
+    // $mail = new PHPMailer();
 
-    $mail->SMTPDebug = 1;
-    $mail->IsSMTP(); // Define que a mensagem será SMTP
-    $mail->Host = $configuracao_email->smtp; // Endereço do servidor SMTP
-    $mail->SMTPAuth = $configuracao_email->requer_autenticacao; // Autenticação
-    //$mail->Port = $configuracao_email->porta_smtp;
-    $mail->Username = $configuracao_email->usuario_smtp; // Usuário do servidor SMTP
-    $mail->Password = $configuracao_email->senha; // Senha da caixa postal utilizada
+    // $mail->SMTPDebug = 1;
+    // $mail->IsSMTP(); // Define que a mensagem será SMTP
+    // $mail->Host = $configuracao_email->smtp; // Endereço do servidor SMTP
+    // $mail->SMTPAuth = $configuracao_email->requer_autenticacao == 's' ? true : false; // Autenticação
+    // //$mail->Port = $configuracao_email->porta_smtp;
+    // $mail->Username = $configuracao_email->usuario_smtp; // Usuário do servidor SMTP
+    // $mail->Password = $configuracao_email->senha; // Senha da caixa postal utilizada
 
-    $mail->From = $configuracao_email->email;
-    $mail->FromName = 'Agendamento de HELP - IOWA Idiomas';
+    // // $mail->From = $configuracao_email->email;
+    // // $mail->FromName = 'Agendamento de HELP - IOWA Idiomas';
 
-    $mail->AddAddress($gerente->email, $gerente->nome);
-    //$mail->AddBCC($aluno->email, $aluno->nome);
+    // // $mail->AddAddress($gerente->email, $gerente->nome);
 
-    $mail->IsHTML(true); // Define que o e-mail será enviado como HTML
-    $mail->CharSet = 'UTF-8'; // Charset da mensagem (opcional)
+    // $mail->setFrom($configuracao_email->email, 'Agendamento de HELP - IOWA Idiomas');
+    // $mail->addAddress($gerente->email, $gerente->nome);     //Add a recipient            //Name is optional
 
-    $mail->Subject  = 'Agendamento de HELP - IOWA Idiomas'; // Assunto da mensagem
-    $mail->Body = $mensagem;
+    // $mail->IsHTML(true); // Define que o e-mail será enviado como HTML
+    // $mail->CharSet = 'UTF-8'; // Charset da mensagem (opcional)
 
-    if(!$mail->Send()):
+    // $mail->Subject  = 'Agendamento de HELP - IOWA Idiomas'; // Assunto da mensagem
+    // $mail->Body = $mensagem;
 
-        echo json_encode(array('status' => 'erro'));
+    // if(!$mail->Send()):
 
-    else:
+    //     echo json_encode(array('status' => 'erro'));
+
+    // else:
 
         /*Salvando dados do HELP*/
         $registro->id_unidade = $dados['id_unidade'];
@@ -633,10 +643,10 @@ if($dados['acao'] == 'salvar'):
 
         echo json_encode(array('status' => 'ok'));
 
-    endif;
+    // endif;
 
-    $mail->ClearAllRecipients();
-    $mail->ClearAttachments();
+    // $mail->ClearAllRecipients();
+    // $mail->ClearAttachments();
 
 endif;
 
@@ -1026,7 +1036,7 @@ if($dados['acao'] == 'aprovar'):
     $aluno = Alunos::find($registro->id_aluno);
     $instrutor = Colegas::find($registro->id_colega);
 
-    include_once('../../classes/PHPMailer/class.phpmailer.php');
+    //include_once('../../classes/PHPMailer/class.phpmailer.php');
 
     try{
         $configuracao_email = Envio_Emails::find(1);
@@ -1086,59 +1096,59 @@ if($dados['acao'] == 'aprovar'):
     $mensagem  = "Olá {$instrutor->nome}, seu HELP com o aluno {$aluno->nome} terá inicio no dia {$registro->data_inicio->format('d-m-Y')}.\r\n";
     $mensagem .= "Horário(s): {$horario}";
 
-    $mail = new PHPMailer();
+    // $mail = new PHPMailer();
 
-    //$mail->SMTPDebug = 1;
-    $mail->IsSMTP(); // Define que a mensagem será SMTP
-    $mail->Host = $configuracao_email->smtp; // Endereço do servidor SMTP
-    $mail->SMTPAuth = $configuracao_email->requer_autenticacao; // Autenticação
-    //$mail->Port = $configuracao_email->porta_smtp;
-    //$mail->Username = $configuracao_email->email; // Usuário do servidor SMTP
-    $mail->Username = $configuracao_email->usuario_smtp; // Usuário do servidor SMTP
-    $mail->Password = $configuracao_email->senha; // Senha da caixa postal utilizada
+    // //$mail->SMTPDebug = 1;
+    // $mail->IsSMTP(); // Define que a mensagem será SMTP
+    // $mail->Host = $configuracao_email->smtp; // Endereço do servidor SMTP
+    // $mail->SMTPAuth = $configuracao_email->requer_autenticacao; // Autenticação
+    // //$mail->Port = $configuracao_email->porta_smtp;
+    // //$mail->Username = $configuracao_email->email; // Usuário do servidor SMTP
+    // $mail->Username = $configuracao_email->usuario_smtp; // Usuário do servidor SMTP
+    // $mail->Password = $configuracao_email->senha; // Senha da caixa postal utilizada
 
-    $mail->From = $configuracao_email->email;
-    $mail->FromName = 'HELP - IOWA Idiomas';
+    // $mail->From = $configuracao_email->email;
+    // $mail->FromName = 'HELP - IOWA Idiomas';
 
-    $mail->AddAddress($aluno->email1, $aluno->nome);
-    //$mail->AddBCC($aluno->email, $aluno->nome);
+    // $mail->AddAddress($aluno->email1, $aluno->nome);
+    // //$mail->AddBCC($aluno->email, $aluno->nome);
 
-    $mail->IsHTML(true); // Define que o e-mail será enviado como HTML
-    $mail->CharSet = 'UTF-8'; // Charset da mensagem (opcional)
+    // $mail->IsHTML(true); // Define que o e-mail será enviado como HTML
+    // $mail->CharSet = 'UTF-8'; // Charset da mensagem (opcional)
 
-    $mail->Subject  = 'HELP - IOWA Idiomas'; // Assunto da mensagem
-    $mail->Body = $mensagem;
+    // $mail->Subject  = 'HELP - IOWA Idiomas'; // Assunto da mensagem
+    // $mail->Body = $mensagem;
 
-    $mail->Send();
+    // $mail->Send();
 
 
-    /*Para o Instrutor*/
-    $mensagem  = "Olá {$instrutor->nome}, seu HELP com o aluno {$aluno->nome} terá inicio no dia {$registro->data_inicio->format('d-m-Y')}.\r\n";
-    $mensagem .= "Horário(s): {$horario}";
+    // /*Para o Instrutor*/
+    // $mensagem  = "Olá {$instrutor->nome}, seu HELP com o aluno {$aluno->nome} terá inicio no dia {$registro->data_inicio->format('d-m-Y')}.\r\n";
+    // $mensagem .= "Horário(s): {$horario}";
 
-    $mail = new PHPMailer();
+    // $mail = new PHPMailer();
 
-    //$mail->SMTPDebug = 1;
-    $mail->IsSMTP(); // Define que a mensagem será SMTP
-    $mail->Host = $configuracao_email->smtp; // Endereço do servidor SMTP
-    $mail->SMTPAuth = $configuracao_email->requer_autenticacao; // Autenticação
-    //$mail->Port = $configuracao_email->porta_smtp;
-    $mail->Username = $configuracao_email->usuario_smtp; // Usuário do servidor SMTP
-    $mail->Password = $configuracao_email->senha; // Senha da caixa postal utilizada
+    // //$mail->SMTPDebug = 1;
+    // $mail->IsSMTP(); // Define que a mensagem será SMTP
+    // $mail->Host = $configuracao_email->smtp; // Endereço do servidor SMTP
+    // $mail->SMTPAuth = $configuracao_email->requer_autenticacao; // Autenticação
+    // //$mail->Port = $configuracao_email->porta_smtp;
+    // $mail->Username = $configuracao_email->usuario_smtp; // Usuário do servidor SMTP
+    // $mail->Password = $configuracao_email->senha; // Senha da caixa postal utilizada
 
-    $mail->From = $configuracao_email->email;
-    $mail->FromName = 'HELP - IOWA Idiomas';
+    // $mail->From = $configuracao_email->email;
+    // $mail->FromName = 'HELP - IOWA Idiomas';
 
-    $mail->AddAddress($instrutor->email, $instrutor->nome);
-    //$mail->AddBCC($aluno->email, $aluno->nome);
+    // $mail->AddAddress($instrutor->email, $instrutor->nome);
+    // //$mail->AddBCC($aluno->email, $aluno->nome);
 
-    $mail->IsHTML(true); // Define que o e-mail será enviado como HTML
-    $mail->CharSet = 'UTF-8'; // Charset da mensagem (opcional)
+    // $mail->IsHTML(true); // Define que o e-mail será enviado como HTML
+    // $mail->CharSet = 'UTF-8'; // Charset da mensagem (opcional)
 
-    $mail->Subject  = 'HELP - IOWA Idiomas'; // Assunto da mensagem
-    $mail->Body = $mensagem;
+    // $mail->Subject  = 'HELP - IOWA Idiomas'; // Assunto da mensagem
+    // $mail->Body = $mensagem;
 
-    $mail->Send();
+    // $mail->Send();
 
     /*Fim do envio dos emails*/
     /*--------------------------------------------------------------------------------------------*/
