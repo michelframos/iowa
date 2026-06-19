@@ -17,6 +17,9 @@ class EnvioEmailApiController
             'cc' => $cc,
         ];
 
+        echo json_encode($body);
+        exit;
+
         curl_setopt_array($curl, array(
             CURLOPT_URL => 'https://api.smtplw.com.br/v1/messages',
             CURLOPT_RETURNTRANSFER => true,
@@ -44,7 +47,7 @@ class EnvioEmailApiController
                 return 'erro';
         endswitch;
 
-//        $data = json_decode($response);
+        //        $data = json_decode($response);
 //
 //        if($data->data->attributes->status === 'Enfileirado'):
 //            return 'ok';
